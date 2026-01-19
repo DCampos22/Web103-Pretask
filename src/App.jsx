@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useRoutes, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { supabase } from './client'; // Import the client you made
 import './App.css';
+import heroImg from './assets/creatorverse.jpg';
 
 // Import your pages
 import ShowCreators from './pages/ShowCreators';
@@ -46,11 +48,39 @@ function App() {
     }
   ]);
 
+  const location = useLocation();
+  const showHeader = location.pathname === '/';
+
+  const headerStyle = {
+    padding: '3rem 1rem',
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${heroImg})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    color: '#fff',
+    borderRadius: '10px',
+    minHeight: '220px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center'
+  };
+
   return (
-    <div className="App">
-       {/* ... your header/nav code ... */}
-       {element}
-    </div>
+    <main className="container">
+      {showHeader && (
+        <header className="hero" style={headerStyle}>
+          <h1 style={{ fontSize: '4rem', margin: '0.2rem 0', textTransform: 'lowercase', fontFamily: "'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial" }}>
+            creatorverse
+          </h1>
+          <p className="lead">Discover and save your favorite content creators.</p>
+          
+        </header>
+      )}
+
+      {/* routed pages (ShowCreators will render under the header on the landing route) */}
+      {element}
+    </main>
   );
 }
 

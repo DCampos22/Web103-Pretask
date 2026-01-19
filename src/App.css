@@ -40,3 +40,58 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Creator grid and card styles */
+.creators-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+  align-items: start;
+}
+
+.creator-card {
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  text-align: left;
+}
+
+.creator-card h3 {
+  margin: 0.5rem 0 0.35rem;
+}
+
+.add-button {
+  font-size: 1rem;
+}
+
+/* Header tweaks when using hero background */
+.hero .lead {
+  color: rgba(255,255,255,0.9);
+  margin: 0.25rem 0 0;
+}
+
+@media (min-width: 640px) {
+  .hero {
+    padding: 3rem 2rem;
+  }
+  .hero h1 {
+    font-size: 4.5rem;
+  }
+}
+
+/* Placeholder image styling */
+.img-placeholder {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  padding: 1.25rem 0;
+}
+.img-placeholder svg {
+  display: block;
+  opacity: 0.95;
+}
